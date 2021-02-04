@@ -1,0 +1,173 @@
+{% extends 'common.html' %}
+{% load static %}
+{% block common %}
+    {% include 'mainmenu.html' %}
+    <style>
+
+
+
+
+body {
+	font-size: 16px;
+}
+
+main {
+	padding: 10px;
+}
+
+/* Table */
+.donor-table {
+
+	font-size: 0.625em;
+	font-family: "Noto Sans KR", sans-serif;
+	width: 100%;
+	max-width: 1024px;
+	margin: 100px auto;
+	border-collapse: collapse;
+	text-align: center;
+	box-shadow: 0 2px 2px #e6e6e6;
+}
+
+h3 {
+	font-weight: bold;
+
+	padding: 10px;
+	/*background-color: #3b6978;*/
+     background: linear-gradient(to bottom right, red 0%, purple 100%);
+
+}
+
+thead th {
+	/*background-color: #204051;*/
+    background: linear-gradient(to bottom right, red 0%, purple 100%)
+}
+
+h3,
+thead th {
+	color: #fff;
+}
+
+th {
+	padding: 10px 5px;
+}
+
+tfoot {
+	text-align: left;
+	background-color: #e7dfd5;
+	font-weight: lighter;
+	font-size: 0.8em;
+}
+
+tbody th,
+tbody td {
+	text-align: center;
+}
+
+tbody tr {
+	border-bottom: 2px solid transparent;
+    color: maroon;
+}
+
+tbody tr:hover {
+	border-bottom: 2px solid #84a9ac;
+}
+
+tbody tr:nth-of-type(even) {
+	/*background-color: #e7dfd5;*/
+    background-color: orange;
+    color: maroon;
+}
+
+/* Media Queries */
+@media (max-width: 320px) {
+	.donor-table {
+		font-size: 0.55em;
+	}
+}
+
+@media (min-width: 411px) {
+	.donor-table {
+		font-size: 20px /*11.5px*/
+	}
+}
+
+@media (min-width: 768px) {
+	body {
+		font-size: 1.125em; /*16px*/
+	}
+
+	h3 {
+		padding: 20px;
+	}
+}
+
+@media (min-width: 1024px) {
+	body {
+		font-size: 1.25em; /*20px*/
+	}
+}
+
+
+    </style>
+<main>
+    <h3 style="text-align: center;">Donor {{ data.name }} Information</h3>
+	<table class="donor-table">
+
+		<thead>
+
+			<tr>
+
+				<th colspan="2">Details</th>
+
+
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr>
+				<th>Name</th>
+				<td>{{ data.name }}</td>
+
+			</tr>
+			<tr>
+				<th>Gender</th>
+				<td>{{ data.gender }}</td>
+
+			</tr>
+			<tr>
+				<th>Blood Group</th>
+				<td>{{ data.bloodgroup }}</td>
+
+			</tr>
+			<tr>
+				<th>Contact</th>
+				<td>{{ data.contact }}</td>
+
+			</tr>
+			<tr>
+				<th>Email</th>
+				<td>{{ data.email }}</td>
+
+			</tr>
+			<tr>
+				<th>Age</th>
+				<td>{{ data.age }}</td>
+
+			</tr>
+			<tr>
+				<th>Weight</th>
+				<td>{{ data.weight }}</td>
+
+			</tr>
+        	<tr>
+				<th>Last Date of Donation</th>
+				<td>{{ data.ldd }}</td>
+
+			</tr>
+		</tbody>
+
+	</table>
+
+</main>
+
+{% endblock %}

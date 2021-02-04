@@ -1,0 +1,209 @@
+
+{% extends "common.html" %}
+{% load static %}
+{% block common %}
+    {% include "mainmenu.html" %}
+
+    <style>
+
+.wrapper {
+  background: blue;
+  background: linear-gradient(top left, red 0%, maroon 100%);
+  background: linear-gradient(to bottom right, red 0%, purple 100%);
+  position: relative;
+  top: 15px;
+  left: 0;
+  width: 100%;
+    height: 350px;
+
+
+  overflow: hidden;
+}
+        .bg-bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+
+}
+.bg-bubbles li {
+  position: absolute;
+  list-style: none;
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.15);
+  bottom: -160px;
+  animation: square 25s infinite;
+  transition-timing-function: linear;
+}
+.bg-bubbles li:nth-child(1) {
+  left: 10%;
+}
+.bg-bubbles li:nth-child(2) {
+  left: 20%;
+  width: 80px;
+  height: 80px;
+  animation-delay: 1s;
+  animation-duration: 17s;
+}
+.bg-bubbles li:nth-child(3) {
+  left: 25%;
+  animation-delay: 1s;
+
+}
+.bg-bubbles li:nth-child(4) {
+  left: 40%;
+  width: 60px;
+  height: 60px;
+  animation-duration: 22s;
+  background-color: rgba(255, 255, 255, 0.25);
+}
+.bg-bubbles li:nth-child(5) {
+  left: 70%;
+}
+.bg-bubbles li:nth-child(6) {
+  left: 80%;
+  width: 120px;
+  height: 120px;
+  animation-delay: 3s;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.bg-bubbles li:nth-child(7) {
+  left: 32%;
+  width: 160px;
+  height: 160px;
+  animation-delay: 7s;
+}
+.bg-bubbles li:nth-child(8) {
+  left: 55%;
+  width: 20px;
+  height: 20px;
+  animation-delay: 15s;
+  animation-duration: 40s;
+}
+.bg-bubbles li:nth-child(9) {
+  left: 25%;
+  width: 10px;
+  height: 10px;
+  animation-delay: 2s;
+  animation-duration: 40s;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.bg-bubbles li:nth-child(10) {
+  left: 90%;
+  width: 160px;
+  height: 160px;
+  animation-delay: 11s;
+}
+@keyframes square {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-700px) rotate(600deg);
+  }
+}
+@keyframes square {
+  0% {
+            transform: translateY(0);
+  }
+  100% {
+            transform: translateY(-700px) rotate(600deg);
+  }
+}
+
+section{
+    height: 350px;
+}
+article{
+    width: 60%;
+    height: 320px;
+    background-color: orange;
+    float: left;
+    color: maroon;
+    font-size: 20px;
+    font-family:"Arial Rounded MT Bold";
+    font-weight: 900;
+
+
+}
+aside{
+        width: 38%;
+        height: 320px;
+        background-color: orange;
+        float: right;
+    }
+.im {
+ float: left;
+ padding: 0 20px 20px 0;
+}
+.text {
+  overflow: hidden;
+  display: flex;
+
+
+}
+
+    </style>
+ <div class="wrapper">
+      <table align="center" width="100%" >
+
+        <tr>
+            <td width="675" height="250">
+                <div class="w3-content w3-section" style="max-width:500px">
+
+                    <img  class="mySlides w3-container w3-center w3-animate-zoom" src="{% static 'images/donate_blood.jpg' %}" style="width:100%; height: 250px">
+                    <img  class="mySlides w3-container w3-center w3-animate-zoom" src="{% static 'images/OIP.jpg' %}" style="width:100%; height: 250px">
+                  <img  class="mySlides w3-container w3-center w3-animate-zoom" src="{% static 'images/1.jpg.png' %}" style="width:100%; height: 250px">
+                  <img class="mySlides w3-container w3-center w3-animate-left" src="{% static 'images/2.gif' %}" style="width:100%; height: 250px">
+                  <img class="mySlides w3-container w3-center w3-animate-right" src="{% static 'images/3.jpg' %}" style="width:100%; height: 250px">
+                  <img class="mySlides w3-container w3-center w3-animate-zoom" src="{% static 'images/4.png' %}" style="width:100%; height: 250px">
+                </div>
+            </td>
+        </tr>
+          <tr align="center"><td style="color:wheat;"><marquee scroldelay="2">Saving Lives, Its in our blood. Find out if you can Donate blood and save life.</marquee></td></tr>
+           <ul class="bg-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+           </ul>
+      </table></div>
+
+
+    <script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}
+  x[myIndex-1].style.display = "block";
+  setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
+    <br><br>
+    <section>
+
+    <article >
+<p><img src="{% static 'images/welcome-v1.png' %}" align="left" alt="Headshot photo" class="im"><span class='text' style="font-family:'Adobe Kaiti Std R';">Welcome to Save Life India- Blood Donors Network:-<br>
+                                            We are part of “Volunteer for a Better India”, where we work towards strengthening a technology-linked platform aimed at building a country-wide network of blood donors. Till date, through this initiative thousands of people joined and many lives have received a fresh gush of blood and lives !
+</span></p></article> <aside style="text-align: center"><a href="{% url 'register' %}"> <img src="{% static 'images/registernow.png'  %}" style="height: 150px;width: 150px;"></a><br><a href="{% url 'donar' %}"><img src="{% static 'images/loginnow.png'  %}" style="height: 80px;width: 150px"></a></aside> </section>
+
+
+          {% endblock %}
+

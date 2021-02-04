@@ -1,0 +1,152 @@
+{% extends 'common.html' %}
+{% load static %}
+{% block common %}
+    {% include 'donormenu.html'%}
+
+    <script>
+    document.body.className += ' js-loading';
+
+
+
+window.addEventListener('load', showPage, false);
+
+function showPage(){
+  document.body.className = document.body.className.replace('js-loading', '');
+}
+    </script>
+    <style>
+    .js-loading *, .js-loading *:before, .js-loading *:after {
+  animation-play-state: paused !important;
+}
+
+
+header:before {
+  animation: no-transform 3s .5s cubic-bezier(0, .5, 0, 1) forwards;
+  transform: translateY(-6rem);
+  content: '';
+  background: url({% static 'images/bg2.jpg' %}) no-repeat bottom;
+  position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  z-index: -1;
+}
+
+@keyframes no-transform {
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+/*
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-6em);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+*/
+.animate-pop-up {
+  animation: no-transform .6s cubic-bezier(0, .69, .3, 1.14) forwards;
+  opacity: 0;
+  transform: translateY(-2rem) scale(.8);
+}
+/*
+@keyframes pop-up {
+  0% {
+    opacity: 0;
+    transform: translateY(-2rem) scale(.8);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+*/
+
+.heading, .subheading {
+  border: solid 0px red;
+  text-align: center;
+  font-size: 48px;
+ /* background: rgba(126, 82, 0, 0.8);*/
+    background: rgba(126, 12, 0, 0.5);
+
+  border-radius: 6px;
+  animation-delay: 1s;
+}
+.subheading {
+  font-size: 24px;
+  width: 80%;
+  margin: auto;
+  animation-delay: 1.2s;
+}
+
+.header-down-arrow {
+  animation: pulse 2s 3s ease-out infinite;
+  position: absolute;
+    bottom: 4vh;
+    left: 0;
+    right: 0;
+  text-align: center;
+  z-index: 10;
+
+}
+
+.header-down-arrow img {
+  animation: no-transform 1s 1s ease-out forwards;
+  opacity: 0;
+  transform: translateY(4rem);
+}
+/*
+@keyframes frame-slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(4rem);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+*/
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    transform: none;
+  }
+  50% {
+    opacity: .8;
+    transform: scale(.8);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+    </style>
+<body>
+
+  <section style="height: 500px;"><br><br><br><br>
+    <h1 class='heading animate-pop-up' style="color: orange">Welcome !</h1>
+    <h2 class='subheading animate-pop-up' style="color: orange">{{ name }}</h2>
+  </section>
+
+
+
+
+<!--
+https://drive.google.com/uc?export=view&id=1vBjhfTF8W_MuJmNIfefhVt0l3QgGNVCp
+
+
+Scroll Que
+https://drive.google.com/uc?export=view&id=1wrHYhsZq5V7MsSpNn5Cg-Ib1iKlCeL__
+
+-->
+
+</body>
+{% endblock %}

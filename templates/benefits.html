@@ -1,0 +1,49 @@
+{% extends "common.html" %}
+{% load static %}
+{% block common %}
+    {% include "mainmenu.html" %}<br>
+    <style>
+    .table{
+        background: linear-gradient(top left, red 0%, maroon 100%);
+         background: linear-gradient(to bottom right, red 0%, purple 100%);
+        color:white;
+
+
+    }
+    .table1{
+        background-color: orange;
+    }
+
+    </style>
+    <div class=" w3-animate-left">
+    <table border="0" align="center"   class="table table-striped table-success">
+        <tr>
+        <th style="font-size: 12px">There’s no substitute for blood donation and giving blood regularly saves lives. <br>One single donation can be split into three separate parts, helping, saving or improvising the lives of patients. Just three teaspoons of blood can save the life of a premature baby. If you donate blood, you can help in saving lives of many people.
+            <h5 style="color: orange;font-family: Georgia"><b>Improves Heart Health</b></h5>
+            Donating blood improves your overall cardio vascular health.
+            Increased level of iron in the blood raises the chance of heart diseases.
+            Regularly donating blood helps males in particular to reduce the amount of iron in the blood. This can reduce the chance of heart attack by 88%.
+            Additionally, regular blood donation can lower the risk of severe cardio vascular events such as stroke by 33%.<br>
+            <h5 style="color: orange;font-family: Georgia"><b>Burns calories</b></h5>
+            Donating blood on a regular basis can also improve fitness. Donating one pint of blood (450ml) burns 650 calories in donor’s body.
+                <h5 style="color:orange;font-family: Georgia"><b>Enhances feeling of well being in elderly people</b></h5>
+            Many elderly people who are in good health have reported feeling invigorated and re-energized by giving blood on a regular basis
+          <h5 style="color: orange;font-family: Georgia"><b>Reduces the risk of cancer</b></h5>
+            Give blood to help lower your risk of cancer. According to the Miller- keystone blood center, consistent blood donation is associated with lowered risks of cancers, including liver, lung, colon, stomach and throat cancers. Risk levels drop in correlation with how often participants donate blood
+          <h5 style="color: orange;font-family: Georgia"><b>Saves lives</b></h5>
+            By donating blood, many lives are saved and hope is given to many whose situation may otherwise be hopeless. Blood donors give such patients a second chance of life.
+             <h5 style="color: orange;font-family: Georgia"><b>Free health screening done</b></h5>
+            In addition to all of these benefits, a donor receives a free prior health screening plus mini blood test. There will be an Hb (Haemoglobin) level test as well as a blood pressure and body check.  Blood is also tested for some major diseases and the donor is immediately informed in strict confidentiality if any of these tests show positive results.
+           <td align="center">
+            <table  style="width:200px;align-content: center;height: 400px"  class=" table1"><tr>
+                <td><center><a href="{% url 'register' %}"> <img src="{% static 'images/registernow.png'  %}" style="height: 120px;width: 120px;"></a></center></td></tr>
+
+                <tr><td> <center><br><a href="{% url 'donar' %}"><img src="{% static 'images/loginnow.png'  %}" style="height: 80px;width: 120px"></a></center></td></tr>
+                <tr><td> <center><br><a href="{% url 'faqs' %}"><img src="{% static 'images/button_faq.png'  %}" style="height: 30px;width: 120px"></a></center></td></tr></table></td>
+        </tr>
+
+
+
+        </table>
+    </div>
+{% endblock %}

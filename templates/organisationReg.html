@@ -1,0 +1,146 @@
+
+{% extends "common.html" %}
+{% block common %}
+    {% include "adminmenu.html" %}
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script type="text/javascript">
+   $(document).ready(function(){
+        // Countries
+        var country_arr = new Array("Select Country","INDIA");
+
+        $.each(country_arr, function (i, item) {
+            $('#country').append($('<option>', {
+                value: i,
+                text : item,
+            }, '</option>' ));
+        });
+
+        // States
+        var s_a = new Array();
+        s_a[0]="Select State";
+
+        s_a[1]="Select State|Andhrapradesh|Telangana|Maharashtra";
+
+        // Cities
+        var c_a = new Array();
+        //c_a['QUEENSLAND']="BRISBANE";
+        //c_a['VICTORIA']="MELBOURNE";
+        c_a['Andhrapradesh']="Vijaywada|Vishkapatnam";
+       // c_a['Karnataka']="Banglore|Bidar|Vijaypur";
+        //c_a['Tamilnadu']="CHENNAI";
+        c_a['Telangana']="Hyderabad|Sikndarabad";
+        //c_a['Delhi']="Delhi";
+        //c_a['Goa']="Goa";
+        //c_a['W-BENGAL']="KOLKATA";
+        //c_a['Gujarat']="AHMEDABAD1|AHMEDABAD2|AHMEDABAD3|BARODA|BHAVNAGAR|MEHSANA|RAJKOT|SURAT|UNA";
+        //c_a['Madhyapradesh']="INDORE";
+        c_a['Maharashtra']="Mumbai|Kolhapur|Nashik";
+        //c_a['Rajasthan']="ABU";
+        //c_a['AUCKLAND']="AUCKLAND";
+        //c_a['NEWJERSEY']="EDISON";
+        //c_a['ILLINOIS']="CHICAGO";
+        //c_a['MAURITIUS']="MAURITIUS";
+        //c_a['DUBAI']="DUBAI";
+
+
+        $('#country').change(function(){
+            var c = $(this).val();
+            var state_arr = s_a[c].split("|");
+            $('#state').empty();
+            $('#city').empty();
+            if(c==0){
+                $('#state').append($('<option>', {
+                    value: '0',
+                    text: 'Select State',
+                }, '</option>'));
+            }else {
+                $.each(state_arr, function (i, item_state) {
+                    $('#state').append($('<option>', {
+                        value: item_state,
+                        text: item_state,
+                    }, '</option>'));
+                });
+            }
+            $('#city').append($('<option>', {
+                value: '0',
+                text: 'Select City',
+            }, '</option>'));
+        });
+
+        $('#state').change(function(){
+            var s = $(this).val();
+            if(s=='Select State'){
+                $('#city').empty();
+                $('#city').append($('<option>', {
+                    value: '0',
+                    text: 'Select City',
+                }, '</option>'));
+            }
+            var city_arr = c_a[s].split("|");
+            $('#city').empty();
+
+            $.each(city_arr, function (j, item_city) {
+                $('#city').append($('<option>', {
+                    value: item_city,
+                    text: item_city,
+                }, '</option>'));
+            });
+
+
+        });
+    });
+</script>
+</head>
+<body>
+
+ <h2>{{ message }}</h2>
+      <div class="w3-container w3-center w3-animate-left">
+  <form action="{% url 'saveOrganizationDetails'%}" method="post">
+      <table align="center" id="hi" style="width: 500px;height: 1px;" class="table table-striped table-success">
+
+              {% csrf_token %}
+               <tr >
+                  <td style="color: maroon;"  >Org ID</td>
+                  <td ><input type="number" name="orgid" required></td>
+                   <td>{% if msg %}
+                   {{ msg }}
+                       {% endif %}
+                   </td>
+              </tr>
+
+              <tr>
+                  <td style="color: maroon;" >Org Name</td>
+                  <td ><input type="text" name="orgname" required></td>
+              </tr>
+              <tr>
+                  <td style="color: maroon">Password</td>
+                  <td><input type="password" name="password" required></td>
+              </tr>
+              <tr>
+                  <td><font color="maroon">Org Type</font></td>
+                  <td style="color:maroon;">
+                    <select name="type">
+                        <option value="Blood Bank">Blood Bank</option>
+                        <option value="Hospital">Hospital</option>
+
+                    </select>
+                  </td>
+              </tr>
+               <tr><td style="color: maroon;">contry</td><td><select name="country" id="country"></select></td></tr> <br>
+                <tr><td style="color: maroon">state</td><td><select name="state" id="state"></select></td></tr>
+                <tr><td style="color:maroon;">city</td><td><select name="city" id="city"></select></td></tr>
+              <tr>
+                  <td>address</td>
+                    <td><input type="text" name="address" required></td>
+
+              </tr>
+              <tr>
+                  <td style="color:maroon">Contact</td>
+                  <td><input type="number" name="contact" required ></td>
+              </tr>
+              <tr><th colspan="2"><button type="submit" class="btn btn-danger">save</button> </th></tr>
+
+      </table></form>
+      </div>
+          {% endblock %}

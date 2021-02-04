@@ -1,0 +1,52 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg center navbar-dark bg-warning">
+     <a class="navbar-brand" href="#">
+    <img src="{% static 'images/logob.png' %}" width="90" height="35" alt="">
+  </a>
+    <a class="navbar-brand" href="#" style="color:maroon;font-family: 'Agency FB'"><b>Blood Donation</b></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+     <div style="padding-right: 30px"> <li class="nav-item active" style="width: 70px">
+        <a class="nav-link" href="{% url 'main' %}?un={{ name }}"><img src="{% static 'images/button_home.png'  %}" style="height: 30px;width: 80px"> <span class="sr-only">(current)</span></a>
+     </li></div>
+    <div style="padding-right: 30px" > <li class="nav-item active" style="width: 70px">
+        <a class="nav-link" href="{% url 'adminlogin' %}?un={{ name }}"><img src="{% static 'images/button_admin.png'  %}" style="height: 30px;width: 80px"></a>
+    </li></div>
+    <div style="padding-right: 10px" >       <li class="nav-item dropdown active">
+        <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="{% static 'images/button_blood-donation.png'  %}" style="height: 30px;width: 110px">
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background: linear-gradient(to bottom, purple 0%, purple 100%);background: linear-gradient(to bottom right, maroon 0%, purple 100%);">
+          <a class="dropdown-item" href="{% url 'benefits' %}?un={{ name }}" style="color: orange;font-weight: 900">Benefits of Donating Blood</a>
+          <a class="dropdown-item" href="{% url 'important' %}?un={{ name }}" style="color: orange;font-weight: 900">Why is it important for me to register as a blood donor?</a>
+          <a class="dropdown-item" href="{% url 'whbenefits' %}?un={{ name }}" style="color: orange;font-weight: 900">Who benefits from your blood donations?</a>
+
+        </div>
+      </li>
+    </div>
+     <div style="padding-right: 30px" > <li class="nav-item active" style="width: 70px">
+        <a class="nav-link" href="{% url 'donar' %}?un={{ name }}"><img src="{% static 'images/button_donor.png'  %}" style="height: 30px;width: 80px"></a>
+     </li></div>
+          {#     <li class="nav-item active" style="width: 120px">#}
+        {# <a class="nav-link" href="{% url 'org' %}">Organization</a> #}
+      {#  </li> #}
+        <div style="padding-right: 30px" >   <li class="nav-item active" style="width: 70px">
+        <a class="nav-link" href="{% url 'faqs' %}?un={{ name }}"><img src="{% static 'images/button_faq.png'  %}" style="height: 30px;width: 70px"></a>
+        </li></div>
+      <li class="nav-item dropdown active">
+        <a class="nav-link " href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="{% static 'images/button_find.png'  %}" style="height: 30px;width: 70px">
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="background: linear-gradient(to bottom right, red 0%, purple 100%)">
+          <a class="dropdown-item" href="{% url 'donarA' %}?un={{ name }}" style="color: orange;font-weight: 900">Donar</a>
+          <a class="dropdown-item" href="{% url 'bloodA' %}?un={{ name }}" style="color: orange;font-weight: 900">Blood Bank</a>
+          <a class="dropdown-item" href="{% url 'hospitalA' %}?un={{ name }}" style="color: orange;font-weight: 900">Hospital</a>
+
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

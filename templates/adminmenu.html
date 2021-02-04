@@ -1,0 +1,29 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg center navbar-dark bg-danger">
+     <a class="navbar-brand" href="#">
+    <img src="{% static 'images/logob.png' %}" width="90" height="35" alt="">
+  </a>
+  <a class="navbar-brand" href="#" style="font-size: 14px">Blood Donation</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active" >
+        <a class="nav-link" href="{% url 'adminhome' %}">Home <span class="sr-only">(current)</span></a>
+      </li><pre>  </pre>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'organisation' %}">Add Organization</a>
+      </li><pre>  </pre>
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'profiles' %}">Profile</a>
+      </li><pre>  </pre>
+         <li class="nav-item active" >
+        <a class="nav-link" href="{% url 'inbox' %}">Inbox</a>
+      </li><pre>  </pre>
+           <li class="nav-item active">
+        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+           </li>
+    </ul>
+  </div>
+</nav>

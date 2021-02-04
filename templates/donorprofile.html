@@ -1,0 +1,29 @@
+{% extends "common.html" %}
+{% block common %}
+    {% include "adminmenu.html" %}
+
+<table border="3" class="table table-striped table-dark">
+          <tr style="border-color: white"><th width="150" style="color: navajowhite;">Donor Name</th>
+          <th width="50" style="color: navajowhite;">Gender</th>
+          <th width="50" style="color: navajowhite;">Age</th>
+          <th width="100" style="color: navajowhite;">Contact No.</th>
+          <th width="50" style="color: navajowhite;">BGroup</th>
+          <th width="100" style="color: navajowhite;">State</th>
+          <th width="100" style="color: navajowhite">City</th>
+          <th width="50" style="color: navajowhite;">Weight</th>
+          <th width="150" style="color: navajowhite;">Last Donation Date</th>
+          <th width="100" style="color: navajowhite;">Email</th></tr>
+          {% for x in data %}
+              <tr><th width="150" style="color: yellow">{{ x.name }}</th>
+              <th width="50" style="color: yellow">{{ x.gender }}</th>
+              <th width="50" style="color: yellow">{{ x.age }}</th>
+              <th width="100" style="color:yellow">{{ x.contact }}</th>
+              <th width="50" style="color: yellow">{{ x.bloodgroup }}</th>
+              <th width="100" style="color: yellow">{{ x.state }}</th>
+              <th width="100" style="color: yellow">{{ x.city }}</th>
+              <th width="50" style="color: yellow">{{ x.weight }}</th>
+              <th width="150" style="color: yellow">{{ x.ldd }}</th>
+              <th width="100" style="color: yellow">{{ x.email }}</th></tr>
+          {% endfor %}
+      </table>
+{% endblock %}

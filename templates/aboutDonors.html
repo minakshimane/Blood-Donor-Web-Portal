@@ -1,0 +1,30 @@
+{% extends "common.html" %}
+{% load static %}
+{% block common %}
+    {% include "mainmenu.html" %}
+    <br><br>
+    <form action="{% url 'onnext' %}" method="post">
+          {% csrf_token %}
+          <div class=" w3-animate-left">
+       <table border="0" align="center" style="border-style: dashed"><tr><td>
+            <div class="input-group mb-3" style="width: 500px;padding-top: 50px;padding-bottom: 20px;padding-left: 30px;padding-right: 30px">
+  <div class="input-group-prepend" >
+    <label class="input-group-text" for="inputGroupSelect01" >Select State</label>
+  </div>
+                        <select name="state"  class="custom-select" id="inputGroupSelect01">
+                            <option value="Andhrapradesh">Andhrapradesh </option>
+
+                            <option value="Maharashtra">Maharashtra </option>
+
+                            <option value="Telangana">Telangana</option>
+                        </select>
+            </div>
+           <center style="padding-bottom: 50px">   <button type="submit" class="btn btn-success" style="align-content: center">Next</button></center>
+        </td><th><img src="{% static 'images/search-mk.png'  %}" class="rounded float-right" style="width: 200px;height: 200px"></th></tr></table>
+
+          </div>
+      </form>
+
+      {{ message }}
+
+{% endblock %}

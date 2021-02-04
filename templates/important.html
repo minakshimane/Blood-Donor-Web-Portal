@@ -1,0 +1,49 @@
+{% extends "common.html" %}
+{% load static %}
+{% block common %}
+    {% include "mainmenu.html" %}
+    <br><style>
+    .table{
+        background: linear-gradient(top left, red 0%, maroon 100%);
+         background: linear-gradient(to bottom right, red 0%, purple 100%);
+        color:white;
+
+
+    }
+    .table1{
+        background-color: orange;
+    }
+h5{
+    color:orange;
+}
+
+    </style>
+    <table border="0" align="center"  class="table table-striped table-success">
+        <tr>
+        <th style="font-size: 12px">
+            <h5 style="font-family: Georgia"><b>1. Shortage of Blood.</b></h5>
+            Our nation requires 4 crores units of blood and only 40 lakh units are actually available. Experts predicts demand for blood in India will increase significantly over the next 10 years.
+            <h5 style="font-family: Georgia"><b>2. It helps others save lives.</b></h5>
+            Donating blood is an active way of helping others and the whole of society. Blood donation is an altruistic noble gesture and one of the simplest, least expensive and a healthy way to contribute to the society.
+              <h5 style="font-family: Georgia"><b>3. For you, it’s just a few moments of your day but for patients, it is life saver</b></h5>
+            Specialist medical staff are available at all times during the donation, which is a simple, safe and painless procedure. Also there is no risk to the donors.
+            <h5 style="font-family: Georgia"><b>4. Donations – the only way of obtaining blood</b></h5>
+            Despite medical and technological advances, blood cannot currently be made. Selling of blood is an illegal act in India, thus , the only way of getting blood is via blood donations from people willing to give blood. The Blood Donors Club plays a very active role in connecting the patients / people in the need of blood to the blood donors.
+         <h5 style="font-family: Georgia"><b>5. Blood and its components have a limited life</b></h5>
+            <ul>   <li>Red blood cell concentrates can be kept for 42 days.</li>
+               <li>Plasma can be stored for a year.</li>
+               <li>Platelets can be kept for five days.</li></ul>
+             <h5 style="font-family: Georgia"><b>Human body is the best storage of blood.</b></h5>
+            Since blood has a short life span , it is ideal if a donor is available when there is a need .The real problem is not that there are no willing people to donate blood but it is the availability of donor with the right blood group at the right time which creates a problem. The Save Life India Blood Donors Club connects the needy person to fulfill the requirement
+        </th><td align="center">
+            <table border="0" style="width:200px;align-content: center;height: 400px" class=" table1"><tr>
+                <td><center><a href="{% url 'register' %}"> <img src="{% static 'images/registernow.png'  %}" style="height: 120px;width: 120px;"></a></center></td></tr>
+                <tr><td> <center><br><a href="{% url 'donar' %}"><img src="{% static 'images/loginnow.png'  %}" style="height: 80px;width: 120px"></a></center></td></tr>
+                <tr><td> <center><br><a href="{% url 'faqs' %}"><img src="{% static 'images/button_home.png'  %}" style="height: 30px;width: 120px"></a></center></td></tr></table></td>
+        </tr>
+
+
+
+        </table>
+
+{% endblock %}
